@@ -1,9 +1,9 @@
 <template>
-    <section class="nav">
-        <div class="nav__head">
-            <header class="nav__header">
-                <strong>Platzi Music</strong>
-                <!-- <div class="nav__left">
+  <section class="nav">
+    <div class="nav__head">
+      <header class="nav__header">
+        <strong>Platzi Music</strong>
+        <!-- <div class="nav__left">
                     <div class="nav__item">
                         <strong>Platzi Music</strong>
                     </div>
@@ -11,39 +11,39 @@
                 <div class="nav__right">
 
                 </div> -->
-            </header>
-        </div>
-        <div class="nav__body">
-            <div class="body__container">
-                <h1>Platzi Music</h1>
-                <h2>Canciones que estan Buenisimas</h2>
-            </div>
-        </div>
-    </section>
+      </header>
+    </div>
+    <div class="nav__body">
+      <div class="body__container">
+        <h1>Platzi Music</h1>
+        <h2>Canciones que estan Buenisimas</h2>
+      </div>
+    </div>
+  </section>
 </template>
 <style lang="scss" scoped>
 .nav {
-    width: 100%;
-    height: 120px;
-    background: #23d160;
-    display: grid;
-    grid-template-rows: repeat(2, 1fr);
-    place-items: center;
-    padding: 10px 0;
+  width: 100%;
+  height: 120px;
+  background: #23d160;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  place-items: center;
+  padding: 10px 0;
 }
 .nav__head {
-    width: 100%;
-    text-align: center;
-    & strong {
-        font-size: 2.6rem;
-    }
+  width: 100%;
+  text-align: center;
+  & strong {
+    font-size: 2.6rem;
+  }
 }
 .nav__body {
-    width: 100%;
+  width: 100%;
 }
 .nav__body .body__container {
-    width: 100%;
-    text-align: center;
-    font-size: 1.2rem;
+  width: 100%;
+  text-align: center;
+  font-size: 1.2rem;
 }
 </style>
