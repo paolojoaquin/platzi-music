@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # platzi-musica
+=======
+# platzi-music
+>>>>>>> 16939a196b01c99f20db3bbb8245095d91034aba
 
 ## Project setup
 ```
