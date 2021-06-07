@@ -31,17 +31,10 @@ export default {
 <style lang="scss" scoped>
 .nav {
   width: 100%;
-<<<<<<< HEAD
   height: auto;
   background: #23d160;
   display: grid;
   grid-template-rows: 60px auto;
-=======
-  height: 120px;
-  background: #23d160;
-  display: grid;
-  grid-template-rows: repeat(2, 1fr);
->>>>>>> 7e38fb126145f5e20cdd5c67f73bc6ca39e47de7
   place-items: center;
   padding: 10px 0;
 }
