@@ -1,104 +1,113 @@
 <template>
   <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
   <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
-  <div id="app">
-    <pm-header :isSelected="isSelected"></pm-header>
+  <nav>
+    <!-- <pm-header :isSelected="isSelected"></pm-header> -->
 
-    <pm-notification
-        v-show="showNotification"
-        :cantResults="cantSearchResults">
+    <pm-notification v-show="showNotification" :cantResults="cantSearchResults">
       <template v-slot:body>
-        <p v-show="cantSearchResults > 0" class="font-white">Se hallaron '{{ cantSearchResults }}' Resultados</p>
-        <p v-show="cantSearchResults === 0" class="font-white">No se encontraron resultados</p>
+        <p v-show="cantSearchResults > 0" class="font-white">
+          Se hallaron '{{ cantSearchResults }}' Resultados
+        </p>
+        <p v-show="cantSearchResults === 0" class="font-white">
+          No se encontraron resultados
+        </p>
       </template>
     </pm-notification>
     <pm-loader v-show="isLoading"></pm-loader>
     <section v-show="!isLoading" class="app__container">
-        <div class="container__searcher">
-          <input class="input" v-model="searchQuery" type="text" placeholder="Buscar Canciones" />
-          <a 
-            href="#"
-            @click="search">Buscar</a>
+      <div class="container__searcher">
+        <input
+          class="input"
+          v-model="searchQuery"
+          type="text"
+          placeholder="Buscar Canciones"
+        />
+        <a href="#" @click="search">Buscar</a>
+      </div>
+      <div class="container__message">
+        <p>{{ searchMessage }}</p>
+      </div>
+      <div class="container__tracks">
+        <div v-for="(t, index) in tracks" :key="index" class="column__tracks">
+          <pm-track
+            :class="{ 'is-active': t.id === selectedTrack }"
+            :track="t"
+            @select-track="setSelectedTrack"
+          ></pm-track>
+          <!-- {{ t.name }} - {{ t.artists[0].name }} -->
         </div>
-        <div class="container__message">
-          <p>{{ searchMessage }}</p>
-        </div>
-        <div class="container__tracks">
-            <div v-for="t in tracks" :key="t" class="column__tracks">
-              <pm-track
-                :class="{ 'is-active': t.id === selectedTrack }"
-                :track="t"
-                @select-track="setSelectedTrack"></pm-track>
-              <!-- {{ t.name }} - {{ t.artists[0].name }} -->
-            </div>
-        </div>
+      </div>
     </section>
-    <pm-footer></pm-footer>
-  </div>
+    <!-- <pm-footer></pm-footer> -->
+  </nav>
 </template>
 
 <script>
-import trackService from '@/services/track';
+import trackService from "@/services/track";
 
-import PmFooter from '@/components/layout/Footer.vue';
-import PmHeader from '@/components/layout/Header.vue';
+// import PmFooter from "@/components/layout/Footer.vue";
+// import PmHeader from "@/components/layout/Header.vue";
 
-import PmTrack from '@/components/Track.vue';
+import PmTrack from "@/components/Track.vue";
 
-import PmNotification from '@/components/shared/Notification.vue';
-import PmLoader from '@/components/shared/Loader.vue';
+import PmNotification from "@/components/shared/Notification.vue";
+import PmLoader from "@/components/shared/Loader.vue";
 export default {
-  name: "App",
+  name: "Search",
   components: {
-    PmFooter, PmHeader, PmTrack, PmLoader, PmNotification
+    PmTrack,
+    PmLoader,
+    PmNotification,
   },
   data() {
     return {
-      searchQuery: '',
+      searchQuery: "",
       tracks: [],
       isLoading: false,
-      selectedTrack: '',
+      selectedTrack: "",
       showNotification: false,
       cantSearchResults: 0,
-      isSelected: false,
-    }
+      // isSelected: false,
+    };
   },
   computed: {
     searchMessage() {
       return `Encontrados: ${this.tracks.length}`;
-    }
+    },
   },
   watch: {
-    showNotification () {
+    showNotification() {
       if (this.showNotification) {
         setTimeout(() => {
           this.showNotification = false;
-        },3000);
+        }, 3000);
       }
-    }
+    },
   },
   methods: {
-    search () {
-      if(!this.searchQuery) { return }
+    search() {
+      if (!this.searchQuery) {
+        return;
+      }
       this.isLoading = true;
-      trackService.search(this.searchQuery)
-      .then(res => {
+      trackService.search(this.searchQuery).then((res) => {
         this.showNotification = true;
         this.tracks = res.tracks.items;
         this.isLoading = false;
         this.cantSearchResults = res.tracks.total || 0;
-      })
+      });
     },
-    setSelectedTrack (id) {
+    setSelectedTrack(id) {
       this.selectedTrack = id;
-      this.isSelected = true;
-    }
-  }
+      // this.isSelected = true;
+    },
+  },
 };
 </script>
 
-<style lang="scss">
-#app {
+<style lang="scss" scoped>
+main {
   /* color: #2c3e50; */
   height: auto;
   width: 100%;
@@ -163,7 +172,7 @@ export default {
   border: 3px solid #23d160;
 }
 .font-white {
-  color:white;
+  color: white;
   font-size: 1.6rem;
 }
 </style>

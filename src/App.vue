@@ -1,169 +1,25 @@
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
-  <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
   <div id="app">
-    <pm-header :isSelected="isSelected"></pm-header>
+    <pm-header></pm-header>
 
-    <pm-notification
-        v-show="showNotification"
-        :cantResults="cantSearchResults">
-      <template v-slot:body>
-        <p v-show="cantSearchResults > 0" class="font-white">Se hallaron '{{ cantSearchResults }}' Resultados</p>
-        <p v-show="cantSearchResults === 0" class="font-white">No se encontraron resultados</p>
-      </template>
-    </pm-notification>
-    <pm-loader v-show="isLoading"></pm-loader>
-    <section v-show="!isLoading" class="app__container">
-        <div class="container__searcher">
-          <input class="input" v-model="searchQuery" type="text" placeholder="Buscar Canciones" />
-          <a 
-            href="#"
-            @click="search">Buscar</a>
-        </div>
-        <div class="container__message">
-          <p>{{ searchMessage }}</p>
-        </div>
-        <div class="container__tracks">
-            <div v-for="t in tracks" :key="t" class="column__tracks">
-              <pm-track
-                :class="{ 'is-active': t.id === selectedTrack }"
-                :track="t"
-                @select-track="setSelectedTrack"></pm-track>
-              <!-- {{ t.name }} - {{ t.artists[0].name }} -->
-            </div>
-        </div>
-    </section>
+    <router-view></router-view>
+    
     <pm-footer></pm-footer>
   </div>
 </template>
 
 <script>
-import trackService from '@/services/track';
-
-import PmFooter from '@/components/layout/Footer.vue';
-import PmHeader from '@/components/layout/Header.vue';
-
-import PmTrack from '@/components/Track.vue';
-
-import PmNotification from '@/components/shared/Notification.vue';
-import PmLoader from '@/components/shared/Loader.vue';
+import PmFooter from "@/components/layout/Footer.vue";
+import PmHeader from "@/components/layout/Header.vue";
 export default {
   name: "App",
   components: {
-    PmFooter, PmHeader, PmTrack, PmLoader, PmNotification
-  },
-  data() {
-    return {
-      searchQuery: '',
-      tracks: [],
-      isLoading: false,
-      selectedTrack: '',
-      showNotification: false,
-      cantSearchResults: 0,
-      isSelected: false,
-    }
-  },
-  computed: {
-    searchMessage() {
-      return `Encontrados: ${this.tracks.length}`;
-    }
-  },
-  watch: {
-    showNotification () {
-      if (this.showNotification) {
-        setTimeout(() => {
-          this.showNotification = false;
-        },3000);
-      }
-    }
-  },
-  methods: {
-    search () {
-      if(!this.searchQuery) { return }
-      this.isLoading = true;
-      trackService.search(this.searchQuery)
-      .then(res => {
-        this.showNotification = true;
-        this.tracks = res.tracks.items;
-        this.isLoading = false;
-        this.cantSearchResults = res.tracks.total || 0;
-      })
-    },
-    setSelectedTrack (id) {
-      this.selectedTrack = id;
-      this.isSelected = true;
-    }
+    PmFooter,
+    PmHeader,
   }
 };
 </script>
 
 <style lang="scss">
-#app {
-  /* color: #2c3e50; */
-  height: auto;
-  width: 100%;
-}
-.app__container {
-  height: auto;
-  width: 100%;
-  background: grey;
-  display: flex;
-  flex-direction: column;
-}
-.container__searcher {
-  height: 150px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  & > input[type="text"] {
-    width: 50%;
-    height: 40px;
-    outline: none;
-    border: none;
-    border-radius: 20px;
-    padding: 0 30px;
-  }
-  & > a {
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 20px;
-    padding: 5px 30px;
-    font-size: 1.4rem;
-    color: white;
-    background: #2c3e50;
-    border: 3px solid #2c3e50;
-    transition-duration: 0.5s;
-    &:hover {
-      transition-duration: 0.3s;
-      background: white;
-      color: #2c3e50;
-      border: 3px solid #2c3e50;
-    }
-  }
-}
-.container__message {
-  height: 50px;
-  width: 100%;
-  display: grid;
-  place-items: center;
-  & > p {
-    font-size: 1.8rem;
-    font-weight: 500;
-  }
-}
-.container__tracks {
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.is-active {
-  border: 3px solid #23d160;
-}
-.font-white {
-  color:white;
-  font-size: 1.6rem;
-}
+
 </style>
