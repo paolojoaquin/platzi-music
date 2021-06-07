@@ -1,13 +1,8 @@
 <template>
-<<<<<<< HEAD
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-=======
   <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
   <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
-  <div>
-    <pm-header></pm-header>
+  <div id="app">
+    <pm-header :isSelected="isSelected"></pm-header>
 
     <pm-notification
         v-show="showNotification"
@@ -39,20 +34,10 @@
         </div>
     </section>
     <pm-footer></pm-footer>
->>>>>>> 16939a196b01c99f20db3bbb8245095d91034aba
   </div>
 </template>
 
 <script>
-<<<<<<< HEAD
-import HelloWorld from "./components/HelloWorld.vue";
-
-export default {
-  name: "App",
-  components: {
-    HelloWorld,
-  },
-=======
 import trackService from '@/services/track';
 
 import PmFooter from '@/components/layout/Footer.vue';
@@ -75,6 +60,7 @@ export default {
       selectedTrack: '',
       showNotification: false,
       cantSearchResults: 0,
+      isSelected: false,
     }
   },
   computed: {
@@ -105,22 +91,14 @@ export default {
     },
     setSelectedTrack (id) {
       this.selectedTrack = id;
+      this.isSelected = true;
     }
   }
->>>>>>> 16939a196b01c99f20db3bbb8245095d91034aba
 };
 </script>
 
 <style lang="scss">
 #app {
-<<<<<<< HEAD
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-=======
   /* color: #2c3e50; */
   height: auto;
   width: 100%;
@@ -187,6 +165,5 @@ export default {
 .font-white {
   color:white;
   font-size: 1.6rem;
->>>>>>> 16939a196b01c99f20db3bbb8245095d91034aba
 }
 </style>

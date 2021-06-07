@@ -38,7 +38,8 @@ export default {
     props: ['track'],
     methods: {
         selectTrack ()  {
-            this.$emit('select-track', this.track.id)
+            this.$emit('select-track', this.track.id);
+            this.$bus.$emit('set-track', this.track);
         }
     }
 }

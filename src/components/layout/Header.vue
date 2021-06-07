@@ -16,18 +16,26 @@
         <div class="nav__body">
             <div class="body__container">
                 <h1>Platzi Music</h1>
-                <h2>Canciones que estan Buenisimas</h2>
+                <h2>Canciones que estan Vue-nisimas!</h2>
+                <pm-player v-show="isSelected"></pm-player>
             </div>
         </div>
     </section>
 </template>
+<script>
+import PmPlayer from '@/components/Player.vue';
+export default {
+    props: ['isSelected'],
+    components: { PmPlayer }
+}
+</script>
 <style lang="scss" scoped>
 .nav {
     width: 100%;
-    height: 120px;
+    height: auto;
     background: #23d160;
     display: grid;
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: 60px auto;
     place-items: center;
     padding: 10px 0;
 }
