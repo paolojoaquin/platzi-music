@@ -21,7 +21,7 @@
                 <strong>{{ track.duration_ms }}</strong>
                 <div class="level">
                     <div class="level-left">
-                        <a class="level-item">
+                        <a href="#" class="level-item">
                             <span @click="selectTrack">▷</span>
                         </a>
                     </div>
