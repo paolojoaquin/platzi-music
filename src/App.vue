@@ -3,7 +3,7 @@
     <pm-header></pm-header>
 
     <router-view></router-view>
-    
+
     <pm-footer></pm-footer>
   </div>
 </template>
@@ -16,9 +16,8 @@ export default {
   components: {
     PmFooter,
     PmHeader,
-  }
+  },
 };
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

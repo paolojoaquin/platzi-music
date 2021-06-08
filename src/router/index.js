@@ -1,29 +1,28 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Search from '@/components/Search.vue';
-import About from '@/components/About.vue';
-import TrackDetail from '@/components/TrackDetail.vue';
+import Search from "@/components/Search.vue";
+import About from "@/components/About.vue";
+import TrackDetail from "@/components/TrackDetail.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
-  { 
-    path: '/',
+  {
+    path: "/",
     component: Search,
-    name: 'search'
+    name: "search",
   },
-  { 
-    path: '/about',
+  {
+    path: "/about",
     component: About,
-    name: 'about'
+    name: "about",
   },
-  { 
-    path: '/track/:id',
+  {
+    path: "/track/:id",
     component: TrackDetail,
-    name: 'track'
-  }
+    name: "track",
+  },
 ];
-
 
 const router = new VueRouter({
   mode: "history",

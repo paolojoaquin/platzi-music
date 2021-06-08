@@ -4,7 +4,10 @@
   <nav>
     <!-- <pm-header :isSelected="isSelected"></pm-header> -->
     <transition name="move">
-      <pm-notification v-show="showNotification" :cantResults="cantSearchResults">
+      <pm-notification
+        v-show="showNotification"
+        :cantResults="cantSearchResults"
+      >
         <template v-slot:body>
           <p v-show="cantSearchResults > 0" class="font-white">
             Se hallaron '{{ cantSearchResults }}' Resultados
@@ -15,7 +18,6 @@
         </template>
       </pm-notification>
     </transition>
-
 
     <transition name="move">
       <pm-loader v-show="isLoading"></pm-loader>

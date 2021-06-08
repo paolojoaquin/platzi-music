@@ -1,11 +1,11 @@
-<template>
-  <!-- <div class="home">
+<!--template>
+  <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
     <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div> -->
-</template>
+  </div>
+</template-->
 
-<script>
+<!--script>
 // @ is an alias to /src
 
 // export default {
@@ -13,4 +13,4 @@
 //   components: {
 //   },
 // };
-</script>
+</script-->

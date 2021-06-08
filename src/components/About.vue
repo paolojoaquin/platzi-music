@@ -1,7 +1,5 @@
 <template>
-  <div class="container">
-    Nosotros
-  </div>
+  <div class="container">Nosotros</div>
 </template>
 <style lang="scss" scoped>
 .container {

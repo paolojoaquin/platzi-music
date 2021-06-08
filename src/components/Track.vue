@@ -35,11 +35,11 @@
   </div>
 </template>
 <script>
-import PmLoader from '@/components/shared/Loader.vue';
-import trackMixin from '@/mixins/track.js';
+import PmLoader from "@/components/shared/Loader.vue";
+import trackMixin from "@/mixins/track.js";
 
 export default {
-  mixins: [ trackMixin ],
+  mixins: [trackMixin],
   // props: {
   //     track: { type: Object, required: true};
   // }
@@ -48,8 +48,8 @@ export default {
   methods: {
     goToTrack(id) {
       // if (!this.track.preview_url) { return }
-      this.$router.push({ name: 'track', params: { id }})
-    }
+      this.$router.push({ name: "track", params: { id } });
+    },
   },
 };
 </script>

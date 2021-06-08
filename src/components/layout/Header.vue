@@ -3,9 +3,9 @@
     <div class="nav__head">
       <header class="nav__header">
         <div class="nav__left">
-            <div class="nav__item">
-                <strong>Platzi Music</strong>
-            </div>
+          <div class="nav__item">
+            <strong>Platzi Music</strong>
+          </div>
         </div>
         <div class="nav__right">
           <router-link :to="{ name: 'search' }">Buscar</router-link>

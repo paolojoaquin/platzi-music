@@ -21,12 +21,14 @@ trackService.search = function (q) {
 };
 
 trackService.getById = function (id) {
-  return axios.get(`${baseUrl}/tracks/${id}`)
-    .then(res => {
+  return axios
+    .get(`${baseUrl}/tracks/${id}`)
+    .then((res) => {
       return res.data;
-    }).catch((error) => {
-      console.log(error);
     })
-}
+    .catch((error) => {
+      console.log(error);
+    });
+};
 
 export default trackService;
