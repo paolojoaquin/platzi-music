@@ -13,3 +13,11 @@ body {
     background: #f1f1f1;
     height: auto;
 }
+
+.move-enter-active, .move-leave-active {
+    transform: translateX(0);
+    transition: all .3s linear;
+}
+.move-enter, .move-leave-to {
+    transform: translateX(100%);
+}

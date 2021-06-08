@@ -2,15 +2,15 @@
   <section class="nav">
     <div class="nav__head">
       <header class="nav__header">
-        <strong>Platzi Music</strong>
-        <!-- <div class="nav__left">
-                    <div class="nav__item">
-                        <strong>Platzi Music</strong>
-                    </div>
-                </div>
-                <div class="nav__right">
-
-                </div> -->
+        <div class="nav__left">
+            <div class="nav__item">
+                <strong>Platzi Music</strong>
+            </div>
+        </div>
+        <div class="nav__right">
+          <router-link :to="{ name: 'search' }">Buscar</router-link>
+          <router-link to="about">Nosotros</router-link>
+        </div>
       </header>
     </div>
     <div class="nav__body">

@@ -1,27 +1,33 @@
 <template>
-  <div class="card__track">
-    <img :src="track.album.images[0].url" :alt="track.artists[0].name" />
-    <div class="card-content">
-      <div class="media">
-        <img
-          :src="track.album.images[0].url"
-          :alt="track.artists[0].name"
-          width="50%"
-        />
-        <div class="media-content">
-          <p class="title-is">
-            <strong>{{ track.name }}</strong>
-          </p>
-          <p class="subtitle">{{ track.artists[0].name }}</p>
+  <div>
+    <pm-loader v-if="!track.album"></pm-loader>
+    <div v-else class="card__track">
+      <img :src="track.album.images[0].url" :alt="track.artists[0].name" />
+      <div class="card-content">
+        <div class="media">
+          <img
+            :src="track.album.images[0].url"
+            :alt="track.artists[0].name"
+            width="50%"
+          />
+          <div class="media-content">
+            <p class="title-is">
+              <strong>{{ track.name }}</strong>
+            </p>
+            <p class="subtitle">{{ track.artists[0].name }}</p>
+          </div>
         </div>
-      </div>
-      <div class="content">
-        <strong>{{ track.duration_ms }}</strong>
-        <div class="level">
-          <div class="level-left">
-            <a href="#" class="level-item">
-              <span @click="selectTrack">▷</span>
-            </a>
+        <div class="content">
+          <strong>{{ track.duration_ms | ms-to-mm }}</strong>
+          <div class="level">
+            <div class="level-left">
+              <button @click="selectTrack" class="level-item">
+                <span>▷</span>
+              </button>
+              <button @click="goToTrack(track.id)" class="level-item">
+                <span>🌎</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -29,16 +35,21 @@
   </div>
 </template>
 <script>
+import PmLoader from '@/components/shared/Loader.vue';
+import trackMixin from '@/mixins/track.js';
+
 export default {
+  mixins: [ trackMixin ],
   // props: {
   //     track: { type: Object, required: true};
   // }
+  components: { PmLoader },
   props: ["track"],
   methods: {
-    selectTrack() {
-      this.$emit("select-track", this.track.id);
-      this.$bus.$emit("set-track", this.track);
-    },
+    goToTrack(id) {
+      // if (!this.track.preview_url) { return }
+      this.$router.push({ name: 'track', params: { id }})
+    }
   },
 };
 </script>

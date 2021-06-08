@@ -3,18 +3,24 @@
   <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
   <nav>
     <!-- <pm-header :isSelected="isSelected"></pm-header> -->
+    <transition name="move">
+      <pm-notification v-show="showNotification" :cantResults="cantSearchResults">
+        <template v-slot:body>
+          <p v-show="cantSearchResults > 0" class="font-white">
+            Se hallaron '{{ cantSearchResults }}' Resultados
+          </p>
+          <p v-show="cantSearchResults === 0" class="font-white">
+            No se encontraron resultados
+          </p>
+        </template>
+      </pm-notification>
+    </transition>
 
-    <pm-notification v-show="showNotification" :cantResults="cantSearchResults">
-      <template v-slot:body>
-        <p v-show="cantSearchResults > 0" class="font-white">
-          Se hallaron '{{ cantSearchResults }}' Resultados
-        </p>
-        <p v-show="cantSearchResults === 0" class="font-white">
-          No se encontraron resultados
-        </p>
-      </template>
-    </pm-notification>
-    <pm-loader v-show="isLoading"></pm-loader>
+
+    <transition name="move">
+      <pm-loader v-show="isLoading"></pm-loader>
+    </transition>
+
     <section v-show="!isLoading" class="app__container">
       <div class="container__searcher">
         <input
@@ -22,15 +28,19 @@
           v-model="searchQuery"
           type="text"
           placeholder="Buscar Canciones"
+          v-on:keyup.enter="search"
         />
-        <a href="#" @click="search">Buscar</a>
+        <a @click="search">Buscar</a>
       </div>
       <div class="container__message">
         <p>{{ searchMessage }}</p>
       </div>
+      <!-- <button v-print="'prinBorrowCard'">Imprimir</button> -->
       <div class="container__tracks">
         <div v-for="(t, index) in tracks" :key="index" class="column__tracks">
           <pm-track
+            v-blur="t.preview_url"
+            :key="t.id"
             :class="{ 'is-active': t.id === selectedTrack }"
             :track="t"
             @select-track="setSelectedTrack"
