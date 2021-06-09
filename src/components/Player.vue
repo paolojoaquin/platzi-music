@@ -5,7 +5,7 @@
     </div>
     <p class="track__info">
       <strong>{{ track.name }}</strong>
-      <small>[{{ track.duration_ms | ms-to-mm }}]</small>
+      <small>[{{ track.duration_ms | ms-to-mm) }}]</small>
     </p>
     <p>
       <audio :src="track.preview_url" controls></audio>
@@ -13,7 +13,7 @@
   </div>
 </template>
 <script>
-import { mapState } from 'vuex';
+import { mapState } from "vuex";
 export default {
   // data() {
   //   return {
@@ -26,8 +26,8 @@ export default {
   //   });
   // },
   computed: {
-    ...mapState(['track'])
-  }
+    ...mapState(["track"]),
+  },
 };
 </script>
 <style lang="scss" scoped>

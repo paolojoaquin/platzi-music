@@ -1,10 +1,24 @@
 <template>
   <div class="container">
-      <h3>Nosotros</h3>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem odit alias mollitia tempore, similique dolor tenetur inventore est aspernatur recusandae, iure unde voluptatibus magnam, architecto quasi maiores quam sint provident!
-      Voluptatum, quidem? Maxime voluptatem aspernatur quaerat atque recusandae alias, eum officia tenetur sint consequatur esse ea, odio asperiores? Eveniet perferendis tempore minus eos molestias possimus eius illum, unde perspiciatis ut.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem odit alias mollitia tempore, similique dolor tenetur inventore est aspernatur recusandae, iure unde voluptatibus magnam, architecto quasi maiores quam sint provident!
-      Voluptatum, quidem? Maxime voluptatem aspernatur quaerat atque recusandae alias, eum officia tenetur sint consequatur esse ea, odio asperiores? Eveniet perferendis tempore minus eos molestias possimus eius illum, unde perspiciatis ut.</p>
+    <h3>Nosotros</h3>
+    <p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem odit alias
+      mollitia tempore, similique dolor tenetur inventore est aspernatur
+      recusandae, iure unde voluptatibus magnam, architecto quasi maiores quam
+      sint provident! Voluptatum, quidem? Maxime voluptatem aspernatur quaerat
+      atque recusandae alias, eum officia tenetur sint consequatur esse ea, odio
+      asperiores? Eveniet perferendis tempore minus eos molestias possimus eius
+      illum, unde perspiciatis ut.
+    </p>
+    <p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem odit alias
+      mollitia tempore, similique dolor tenetur inventore est aspernatur
+      recusandae, iure unde voluptatibus magnam, architecto quasi maiores quam
+      sint provident! Voluptatum, quidem? Maxime voluptatem aspernatur quaerat
+      atque recusandae alias, eum officia tenetur sint consequatur esse ea, odio
+      asperiores? Eveniet perferendis tempore minus eos molestias possimus eius
+      illum, unde perspiciatis ut.
+    </p>
   </div>
 </template>
 <style lang="scss" scoped>

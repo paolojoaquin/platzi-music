@@ -1,33 +1,34 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import trackService from '@/services/track';
+import trackService from "@/services/track";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    track: {},    
+    track: {},
   },
   getters: {
-    trackTitle (state) {
-      if (!state.track.name) { return ''; }
+    trackTitle(state) {
+      if (!state.track.name) {
+        return "";
+      }
       return `${state.track.name} - ${state.track.artists[0].name}`;
-    }
+    },
   },
   mutations: {
     //setTrack(state,payload){}
-    setTrack (state, track) {
+    setTrack(state, track) {
       state.track = track;
-    }
+    },
   },
   actions: {
     getTrackById(context, payload) {
-      return trackService.getById(payload.id)
-        .then(res => {
-          context.commit('setTrack', res);
-          return res;
-        });
-    }
+      return trackService.getById(payload.id).then((res) => {
+        context.commit("setTrack", res);
+        return res;
+      });
+    },
   },
   modules: {},
 });

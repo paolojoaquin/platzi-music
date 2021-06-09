@@ -37,7 +37,7 @@
 import trackMixin from "@/mixins/track.js";
 // import trackService from "@/services/track";
 // import PmTrack from '@/components/Track.vue';
-import { mapState, mapActions, mapGetters } from 'vuex';
+import { mapState, mapActions, mapGetters } from "vuex";
 
 export default {
   mixins: [trackMixin],
@@ -48,25 +48,24 @@ export default {
   //   };
   // },
   computed: {
-    ...mapState(['track']),
-    ...mapGetters(['trackTitle']),
+    ...mapState(["track"]),
+    ...mapGetters(["trackTitle"]),
   },
   created() {
     //para leer el id de la url
     const id = this.$route.params.id;
-    if (!this.track || !this.track.id || (this.track.id != id)) {
-      this.getTrackById({ id: id })
-        .then(() => {
-          console.log('Track loaded ...')
-        });
+    if (!this.track || !this.track.id || this.track.id != id) {
+      this.getTrackById({ id: id }).then(() => {
+        console.log("Track loaded ...");
+      });
     }
     // trackService.getById(id).then((res) => {
     //   this.track = res;
     // });
   },
   methods: {
-    ...mapActions(['getTrackById'])
-  }
+    ...mapActions(["getTrackById"]),
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -111,7 +110,7 @@ export default {
   display: inline-block;
   margin: 10px 10px 0 0;
   padding: 10px 30px;
-  background:white;
+  background: white;
   border: 2px solid #121f3d;
   border-radius: 15px;
   cursor: pointer;

@@ -97,8 +97,8 @@ export default {
   width: 100%;
   & > button {
     display: inline-block;
-    margin: 10px 10px 0 0 ;
-    background:white;
+    margin: 10px 10px 0 0;
+    background: white;
     border: 2px solid #121f3d;
     border-radius: 15px;
     cursor: pointer;
