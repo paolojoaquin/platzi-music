@@ -3,11 +3,9 @@
     <div class="track__cover column-track">
       <img :src="track.album.images[0].url" alt="" />
       <!-- <pm-track :track="track"></pm-track>      -->
-      <p>
-        <button @click="selectTrack">
-          <span>▷</span>
-        </button>
-      </p>
+      <button class="button" @click="selectTrack">
+        <span>▷</span>
+      </button>
     </div>
     <div class="track__info column-track">
       <div class="track__card">
@@ -108,5 +106,14 @@ export default {
       list-style: none;
     }
   }
+}
+.button {
+  display: inline-block;
+  margin: 10px 10px 0 0;
+  padding: 10px 30px;
+  background:white;
+  border: 2px solid #121f3d;
+  border-radius: 15px;
+  cursor: pointer;
 }
 </style>

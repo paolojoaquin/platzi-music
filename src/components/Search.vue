@@ -127,7 +127,6 @@ main {
 .app__container {
   height: auto;
   width: 100%;
-  background: grey;
   display: flex;
   flex-direction: column;
 }
@@ -138,6 +137,7 @@ main {
   align-items: center;
   justify-content: space-evenly;
   & > input[type="text"] {
+    box-shadow: 0px 0px 10px 0px black;
     width: 50%;
     height: 40px;
     outline: none;
@@ -152,6 +152,7 @@ main {
     padding: 5px 30px;
     font-size: 1.4rem;
     color: white;
+    cursor: pointer;
     background: #2c3e50;
     border: 3px solid #2c3e50;
     transition-duration: 0.5s;

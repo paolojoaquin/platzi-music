@@ -56,6 +56,7 @@ export default {
 <style lang="scss" scoped>
 .card__track {
   background: white;
+  border: 2px solid grey;
   height: auto;
   width: 300px;
   border-radius: 20px;
@@ -91,5 +92,16 @@ export default {
   display: inline-block;
   width: 50px;
   height: 50px;
+}
+.level-left {
+  width: 100%;
+  & > button {
+    display: inline-block;
+    margin: 10px 10px 0 0 ;
+    background:white;
+    border: 2px solid #121f3d;
+    border-radius: 15px;
+    cursor: pointer;
+  }
 }
 </style>

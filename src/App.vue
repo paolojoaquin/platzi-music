@@ -20,4 +20,10 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+#app {
+  height: auto;
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+}
+</style>
