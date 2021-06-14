@@ -8,11 +8,11 @@
           </router-link>
         </div>
       </div>
+      <div class="right__int">
+        <button @click="selectLang('en')">🇬🇧</button>
+        <button @click="selectLang('es')">🇪🇸</button>
+      </div>
       <div class="nav__right">
-        <div class="right__int">
-          <button @click="selectLang('en')">🇬🇧</button>
-          <button @click="selectLang('es')">🇪🇸</button>
-        </div>
         <div class="right__items">
           <router-link :to="{ name: 'search' }">{{ $t('search') }}</router-link>
           <router-link to="about">{{ $t('about') }}</router-link>
@@ -61,24 +61,29 @@ a {
     color: #121f3d;
   }
   .nav__right {
-    width: 400px;
+    width: fit-content;
     display: flex;
     justify-content: space-between;
   }
 }
 .right__int {
+  width: 100px;
+  display: flex;
+  padding: 5px 0;
+}
+.right__int {
   button {
     display: inline-block;
-    padding: 20px;
+    padding: 10px;
     cursor: pointer;
-    margin: 0 0 0 10px;
+    margin: 0 0 0 5px;
     border-radius: 10px;
     background: #82a4f3;
     border: 3px solid #121f3d;
   }
 }
 .right__items {
-  width: 250px;
+  width: fit-content;
   text-align: right;
   a {
     padding: 0 0 0 10px;
